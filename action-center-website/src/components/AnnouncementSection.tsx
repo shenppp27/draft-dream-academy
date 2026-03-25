@@ -10,7 +10,7 @@ export default function EventSection() {
           <div className="event-heading-block">
             <p className="event-subtitle">— BatStateU</p>
             <h2 className="event-heading">
-              Our Latest <span>Events</span>
+              Our Latest <span>Announcements</span>
             </h2>
           </div>
 

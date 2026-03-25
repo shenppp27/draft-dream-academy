@@ -3,6 +3,8 @@ import Hero from './components/Hero'
 import TopInfoCard from './components/TopInfoCard'
 import AnnouncementSection from './components/AnnouncementSection'
 import EventSection from './components/EventSection'
+import FeaturedLinks from './components/FeaturedLinks'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
         <Hero />
         <AnnouncementSection />
         <EventSection />
+        <FeaturedLinks />
+        <Footer />
       </main>
     </div>
   )
