@@ -1,0 +1,152 @@
+.event-section {
+  padding: 88px 0 70px;
+  background: #efefef;
+}
+
+.event-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 34px;
+}
+
+.event-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 72px;
+}
+
+.event-heading-block {
+  max-width: 980px;
+}
+
+.event-subtitle {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 500;
+  color: #2f3147;
+}
+
+.event-heading {
+  margin: 0;
+  font-size: clamp(3rem, 5.2vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+  color: #2f3147;
+}
+
+.event-heading span {
+  color: #f4433f;
+}
+
+.event-view-all-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 146px;
+  height: 64px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: #f4433f;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.event-slider-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 5.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 5;
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+}
+
+.event-slider-arrow-left {
+  left: -46px;
+}
+
+.event-slider-arrow-right {
+  right: -46px;
+}
+
+.event-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px;
+}
+
+@media (max-width: 1400px) {
+  .event-grid {
+    gap: 28px;
+  }
+
+  .event-slider-arrow-left {
+    left: -18px;
+  }
+
+  .event-slider-arrow-right {
+    right: -18px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .event-header {
+    margin-bottom: 48px;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .event-section {
+    padding: 56px 0 48px;
+  }
+
+  .event-container {
+    padding: 0 16px;
+  }
+
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .event-heading {
+    font-size: clamp(2.8rem, 11vw, 4.2rem);
+  }
+
+  .event-slider-arrow {
+    display: none;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}

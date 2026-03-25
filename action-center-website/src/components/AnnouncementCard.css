@@ -1,0 +1,79 @@
+.announcement-card {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.announcement-image-wrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: #e9e9e9;
+}
+
+.announcement-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.announcement-tag {
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  background: #f4433f;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 16px 30px;
+  border-radius: 0 999px 999px 0;
+  min-width: 300px;
+}
+
+.announcement-content {
+  padding: 32px 32px 36px;
+}
+
+.announcement-date {
+  font-size: 1.05rem;
+  margin-bottom: 22px;
+  color: #222;
+}
+
+.announcement-title {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+  color: #f4433f;
+  font-weight: 800;
+}
+
+.announcement-description {
+  margin: 0 0 30px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.announcement-link {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .announcement-image-wrap {
+    height: 260px;
+  }
+
+  .announcement-tag {
+    min-width: auto;
+    font-size: 1rem;
+    padding: 14px 22px;
+  }
+
+  .announcement-content {
+    padding: 24px;
+  }
+}
