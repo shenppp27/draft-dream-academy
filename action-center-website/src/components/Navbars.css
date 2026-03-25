@@ -1,10 +1,12 @@
 .navbar {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 28px;
   min-width: 0;
+  padding: 18px 34px 10px;
 }
 
 .brand-pill {
@@ -17,19 +19,68 @@
   border-radius: 12px;
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.brand-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(244, 67, 63, 0.24);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 40px;
   flex-wrap: nowrap;
   min-width: 0;
 }
 
 .nav-link {
+  position: relative;
   font-size: 0.98rem;
   font-weight: 800;
   color: #111;
   white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.22s ease, transform 0.22s ease;
+}
+
+.nav-link:hover {
+  color: #f4433f;
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: #f4433f;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #f4433f;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 16px 16px 8px;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 }

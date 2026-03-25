@@ -1,27 +1,24 @@
+import { Routes, Route, Outlet } from 'react-router-dom'
 import Navbars from './components/Navbars'
-import Hero from './components/Hero'
-import TopInfoCard from './components/TopInfoCard'
-import AnnouncementSection from './components/AnnouncementSection'
-import EventSection from './components/EventSection'
-import FeaturedLinks from './components/FeaturedLinks'
-import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+
+function MainLayout() {
+  return (
+    <div className="app-shell">
+      <Navbars />
+      <Outlet />
+    </div>
+  )
+}
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <section className="top-section">
-        <Navbars />
-        <h1 className="main-title">ACTION CENTER</h1>
-        <TopInfoCard />
-      </section>
-
-      <main className="home-layout">
-        <Hero />
-        <AnnouncementSection />
-        <EventSection />
-        <FeaturedLinks />
-        <Footer />
-      </main>
-    </div>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Route>
+    </Routes>
   )
 }

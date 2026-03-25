@@ -1,18 +1,37 @@
 import './Navbars.css'
+import { NavLink } from 'react-router-dom'
 
-const navItems = ['HOME', 'ABOUT', 'DPR', 'IACT4DRR', 'DREAM ACADEMY']
+const navItems = [
+  { label: 'HOME', href: '/' },
+  { label: 'ABOUT', href: '/about' },
+  { label: 'DPR', href: '#' },
+  { label: 'IACT4DRR', href: '#' },
+  { label: 'DREAM ACADEMY', href: '#' },
+]
 
 export default function Navbars() {
   return (
     <header className="navbar">
-      <div className="brand-pill">BatStateU</div>
+      <NavLink to="/" className="brand-pill">
+        BatStateU
+      </NavLink>
 
       <nav className="nav-links">
-        {navItems.map((item) => (
-          <a key={item} href="#" className="nav-link">
-            {item}
-          </a>
-        ))}
+        {navItems.map((item) =>
+          item.href.startsWith('/') ? (
+            <NavLink
+              key={item.label}
+              to={item.href}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              {item.label}
+            </NavLink>
+          ) : (
+            <a key={item.label} href={item.href} className="nav-link">
+              {item.label}
+            </a>
+          ),
+        )}
       </nav>
     </header>
   )
