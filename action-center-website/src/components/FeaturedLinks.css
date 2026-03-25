@@ -1,7 +1,9 @@
 .featured-links {
   width: 100%;
   background: #efefef;
-  padding: 54px 40px 70px;
+  padding: 90px 40px 100px;
+  margin-top: 75px;
+  margin-bottom: 120px;
 }
 
 .featured-links__container {
@@ -18,13 +20,32 @@
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.featured-links__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.featured-links__card:hover {
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.featured-links__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.16) 55%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.featured-links__card:hover .featured-links__overlay {
+  transform: scale(1.04);
+  opacity: 0.95;
 }
 
 .featured-links__label {
@@ -39,6 +60,31 @@
   font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
+  z-index: 2;
+  transition: transform 0.28s ease, background 0.28s ease;
+}
+
+.featured-links__card:hover .featured-links__label {
+  transform: translateY(-4px);
+  background: rgba(255, 63, 63, 0.96);
+}
+
+/* sample backgrounds - replace with your own images/colors */
+.featured-links__card--inventory {
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+}
+
+.featured-links__card--research {
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+}
+
+.featured-links__card--atlas {
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+}
+
+.featured-links__card--partnership {
+  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
 }
 
 @media (max-width: 1300px) {
@@ -66,4 +112,19 @@
     bottom: 40px;
     font-size: 1.1rem;
   }
+}
+
+.featured-links__card {
+  position: relative;
+  height: 330px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.28s ease, transform 0.28s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  display: block;
 }

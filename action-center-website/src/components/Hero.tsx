@@ -1,4 +1,5 @@
 import './Hero.css'
+import universitySeal from '../assets/batstate-u-logo.png'
 
 export default function Hero() {
   return (
@@ -8,8 +9,11 @@ export default function Hero() {
         <span>+63 43 980-0385</span>
       </div>
 
-      <div className="hero-placeholder-logo left-logo">UNIVERSITY SEAL</div>
-      <div className="hero-placeholder-logo right-logo">BAGONG PILIPINAS</div>
+      <img
+        src={universitySeal}
+        alt="University Seal"
+        className="hero-logo-image left-logo"
+      />
 
       <div className="cloud cloud-one" />
       <div className="cloud cloud-two" />

@@ -1,6 +1,6 @@
 import './TopInfoCard.css'
 import { useEffect, useMemo, useState } from 'react'
-import actionLogo from '../assets/hero.png'
+import actionLogo from '../assets/actioncenter-logo-enhance.png'
 
 type WeatherState = {
   temperature: string

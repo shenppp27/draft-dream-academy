@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import './EventCard.css'
+import { hoverLift, tapPress } from '../animations'
 
 export interface EventItem {
   id: number
@@ -15,7 +17,11 @@ interface EventCardProps {
 
 export default function EventCard({ item }: EventCardProps) {
   return (
-    <article className="event-card">
+    <motion.article
+      className="event-card"
+      whileHover={hoverLift}
+      whileTap={tapPress}
+    >
       <div className="event-image-wrap">
         <img src={item.image} alt={item.title} className="event-image" />
         <div className="event-tag">{item.category}</div>
@@ -29,6 +35,6 @@ export default function EventCard({ item }: EventCardProps) {
           Read More <span>→</span>
         </a>
       </div>
-    </article>
+    </motion.article>
   )
 }

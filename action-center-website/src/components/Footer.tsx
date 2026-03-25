@@ -1,14 +1,23 @@
 import './Footer.css'
+import batstateuLogo from '../assets/batstate-u-logo.png'
+import actionLogo from '../assets/actioncenter-logo-enhance.png'
 
 export default function Footer() {
   return (
     <footer className="action-footer">
       <div className="action-footer__container">
         <div className="action-footer__logos">
-          <div className="action-footer__temp-logo">BATSTATEU LOGO</div>
-          <div className="action-footer__temp-logo action-footer__temp-logo--round">
-            ACTION LOGO
-          </div>
+          <img
+            src={batstateuLogo}
+            alt="BatStateU Logo"
+            className="action-footer__logo action-footer__logo--rect"
+          />
+
+          <img
+            src={actionLogo}
+            alt="ACTION Center Logo"
+            className="action-footer__logo action-footer__logo--round"
+          />
         </div>
 
         <div className="action-footer__column">

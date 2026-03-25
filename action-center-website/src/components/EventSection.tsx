@@ -1,40 +1,119 @@
+import { useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 import './EventSection.css'
 import EventCard from './EventCard'
 import { events } from '../data/events'
+import { fadeUp, hoverSoft, tapPress } from '../animations'
 
 export default function EventSection() {
+  const realCount = events.length
+
+  const loopEvents = useMemo(() => {
+    return [...events, ...events, ...events]
+  }, [])
+
+  const [currentIndex, setCurrentIndex] = useState(realCount)
+  const [withTransition, setWithTransition] = useState(true)
+
+  const handleNext = () => {
+    setWithTransition(true)
+    setCurrentIndex((prev) => prev + 1)
+  }
+
+  const handlePrev = () => {
+    setWithTransition(true)
+    setCurrentIndex((prev) => prev - 1)
+  }
+
+  const handleTransitionEnd = () => {
+    if (currentIndex >= realCount * 2) {
+      setWithTransition(false)
+      setCurrentIndex(currentIndex - realCount)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setWithTransition(true)
+        })
+      })
+    }
+
+    if (currentIndex < realCount) {
+      setWithTransition(false)
+      setCurrentIndex(currentIndex + realCount)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setWithTransition(true)
+        })
+      })
+    }
+  }
+
   return (
-    <section className="event-section">
+    <motion.section
+      className="event-section"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.18 }}
+    >
       <div className="event-container">
-        <div className="event-header">
+        <motion.div className="event-header" variants={fadeUp}>
           <div className="event-heading-block">
             <p className="event-subtitle">— BatStateU</p>
             <h2 className="event-heading">
-              Our Latest <span>News&Events</span>
+              Our Latest <span>News&amp;Events</span>
             </h2>
           </div>
 
-          <a href="#" className="event-view-all-button">
+          <motion.button
+            type="button"
+            className="event-view-all-button"
+            whileHover={hoverSoft}
+            whileTap={tapPress}
+          >
             View All
-          </a>
-        </div>
+          </motion.button>
+        </motion.div>
 
         <div className="event-slider-shell">
-          <button className="event-slider-arrow event-slider-arrow-left" aria-label="Previous events">
+          <motion.button
+            type="button"
+            className="event-slider-arrow event-slider-arrow-left"
+            aria-label="Previous events"
+            whileHover={hoverSoft}
+            whileTap={tapPress}
+            onClick={handlePrev}
+          >
             ‹
-          </button>
+          </motion.button>
 
-          <div className="event-grid">
-            {events.map((item) => (
-              <EventCard key={item.id} item={item} />
-            ))}
+          <div className="event-slider-window">
+            <div
+              className={`event-track ${withTransition ? 'is-animated' : 'is-resetting'}`}
+              style={{
+                transform: `translateX(calc(-1 * ${currentIndex} * (var(--event-card-width) + var(--event-gap))))`,
+              }}
+              onTransitionEnd={handleTransitionEnd}
+            >
+              {loopEvents.map((item, index) => (
+                <div className="event-card-slide" key={`${item.id}-${index}`}>
+                  <EventCard item={item} />
+                </div>
+              ))}
+            </div>
           </div>
 
-          <button className="event-slider-arrow event-slider-arrow-right" aria-label="Next events">
+          <motion.button
+            type="button"
+            className="event-slider-arrow event-slider-arrow-right"
+            aria-label="Next events"
+            whileHover={hoverSoft}
+            whileTap={tapPress}
+            onClick={handleNext}
+          >
             ›
-          </button>
+          </motion.button>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

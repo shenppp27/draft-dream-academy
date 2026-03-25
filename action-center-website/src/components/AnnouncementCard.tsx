@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import './AnnouncementCard.css'
 import type { AnnouncementItem } from '../data/announcements'
+import { fadeUp, hoverLift, tapPress } from '../animations'
 
 interface AnnouncementCardProps {
   item: AnnouncementItem
@@ -7,7 +9,14 @@ interface AnnouncementCardProps {
 
 export default function AnnouncementCard({ item }: AnnouncementCardProps) {
   return (
-    <article className="announcement-card">
+    <motion.article
+      className="announcement-card"
+      variants={fadeUp}
+      initial="hidden"
+      animate="visible"
+      whileHover={hoverLift}
+      whileTap={tapPress}
+    >
       <div className="announcement-image-wrap">
         <img src={item.image} alt={item.title} className="announcement-image" />
         <div className="announcement-tag">{item.category}</div>
@@ -21,6 +30,6 @@ export default function AnnouncementCard({ item }: AnnouncementCardProps) {
           Read More →
         </a>
       </div>
-    </article>
+    </motion.article>
   )
 }

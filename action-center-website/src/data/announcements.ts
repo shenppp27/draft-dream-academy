@@ -37,4 +37,22 @@ export const announcements: AnnouncementItem[] = [
       'The drill served as a reminder of the importance of preparedness, safety measures, and organized evacuation procedures for all stakeholders.',
     image: placeholderImage,
   },
+  {
+    id: 4,
+    category: 'Earthquake Drill',
+    date: 'June 19, 2025',
+    title: 'BatStateU Announcement',
+    description:
+      'University offices, response teams, and campus personnel worked together to simulate coordinated emergency actions and improve institutional preparedness.',
+    image: placeholderImage,
+  },
+  {
+    id: 5,
+    category: 'Earthquake Drill',
+    date: 'June 19, 2025',
+    title: 'BatStateU Announcement',
+    description:
+      'The simulation encouraged students, faculty, and staff to stay alert, follow safety protocols, and respond properly during earthquake-related incidents.',
+    image: placeholderImage,
+  },
 ]

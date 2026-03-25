@@ -29,4 +29,13 @@ export const events: EventItem[] = [
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     image: placeholderImage,
   },
+  {
+    id: 4,
+    category: 'Awareness Campaign',
+    date: 'July 10, 2025',
+    title: 'Safety Awareness Program',
+    description:
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    image: placeholderImage,
+  },
 ]
