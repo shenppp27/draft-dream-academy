@@ -1,0 +1,577 @@
+.dream-page-pro {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(176, 30, 42, 0.035), transparent 24%),
+    linear-gradient(180deg, #f8f8f9 0%, #f2f3f5 100%);
+  color: #24283d;
+  overflow-x: hidden;
+}
+
+.dream-shell {
+  width: min(100%, 1020px);
+  margin: 0 auto;
+}
+
+.dream-shell--narrow {
+  width: min(100%, 920px);
+  margin: 0 auto;
+}
+
+.dream-shell--hero {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.dream-kicker {
+  margin: 0 0 10px;
+  color: #b01e2a;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dream-section-heading-pro {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.dream-section-heading-pro h2 {
+  margin: 0;
+  color: #2f3148;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.06;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.dream-section-heading-pro h2 span {
+  color: #ef4444;
+}
+
+.dream-section-heading-pro__line {
+  width: 72px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: #ef4444;
+}
+
+/* hero */
+.dream-hero-pro {
+  padding: 46px 24px 30px;
+}
+
+.dream-hero-pro__content {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 22px;
+}
+
+.dream-hero-pro__title {
+  margin: 0 0 16px;
+  color: #2f3148;
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.dream-hero-pro__title span {
+  color: #ef4444;
+}
+
+.dream-hero-pro__lead {
+  margin: 0 auto;
+  max-width: 620px;
+  color: #52596d;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+
+.dream-hero-pro__image-wrap {
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow:
+    0 22px 42px rgba(22, 28, 48, 0.1),
+    0 8px 18px rgba(22, 28, 48, 0.05);
+}
+
+.dream-hero-pro__image-wrap img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  display: block;
+}
+
+/* analytics */
+.dream-analytics-pro {
+  padding: 12px 24px 44px;
+}
+
+.dream-analytics-pro__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.dream-analytics-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(36, 40, 61, 0.08);
+  box-shadow:
+    0 16px 28px rgba(20, 25, 46, 0.07),
+    0 4px 10px rgba(20, 25, 46, 0.04);
+  min-height: 320px;
+  height: auto;
+}
+
+.dream-analytics-card__image {
+  background: linear-gradient(180deg, #ffffff 0%, #fde3e5 100%);
+  padding: 16px;
+}
+
+.dream-analytics-card__image img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+
+.dream-analytics-card__meta {
+  padding: 0 18px 18px;
+}
+
+.dream-analytics-card__meta h3 {
+  margin: 0 0 4px;
+  color: #2f3148;
+  font-size: 1.02rem;
+  font-weight: 850;
+}
+
+.dream-analytics-card__meta p {
+  margin: 0;
+  color: #61697c;
+  font-size: 0.87rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+/* stories */
+.dream-stories-pro {
+  padding: 18px 24px 48px;
+}
+
+.dream-stories-pro .dream-shell--narrow {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dream-story-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 28px;
+  align-items: center;
+}
+
+.dream-story-card--reverse {
+  grid-template-columns: 210px minmax(0, 1fr);
+}
+
+.dream-story-card--reverse .dream-story-card__copy {
+  order: 2;
+}
+
+.dream-story-card--reverse .dream-story-card__photo {
+  order: 1;
+}
+
+.dream-story-card__copy {
+  min-width: 0;
+}
+
+.dream-story-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dream-story-card__dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef4444 0%, #a81b28 100%);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dream-story-card__quote {
+  margin: 0 0 20px;
+  color: #31384c;
+  font-size: 0.97rem;
+  line-height: 1.88;
+  max-width: 62ch;
+  overflow-wrap: break-word;
+}
+
+.dream-story-card__person h3 {
+  margin: 0 0 4px;
+  color: #111;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.dream-story-card__person p {
+  margin: 0;
+  color: #52596d;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+.dream-story-card__photo {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  overflow: hidden;
+  justify-self: center;
+  box-shadow: 0 16px 28px rgba(20, 25, 46, 0.12);
+}
+
+.dream-story-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* featured */
+.dream-featured-pro {
+  padding: 42px 24px 46px;
+  background: linear-gradient(180deg, #2f3148 0%, #272b42 100%);
+}
+
+.dream-featured-pro__heading {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.dream-featured-pro__heading h2 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.14;
+  font-weight: 900;
+}
+
+.dream-featured-pro__heading h2 span {
+  color: #ef4444;
+}
+
+.dream-featured-pro__heading p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.84rem;
+}
+
+.dream-featured-pro__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.dream-feature-card {
+  background: #f8f7f7;
+  border-top: 6px solid #ef4444;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.14);
+  min-height: 280px;
+  height: auto;
+}
+
+.dream-feature-card__text {
+  margin: 0 0 20px;
+  color: #42495d;
+  font-size: 0.93rem;
+  line-height: 1.78;
+  max-width: 56ch;
+  overflow-wrap: break-word;
+}
+
+.dream-feature-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dream-feature-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dream-feature-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dream-feature-card__meta h3 {
+  margin: 0 0 4px;
+  color: #111;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.dream-feature-card__meta p {
+  margin: 0;
+  color: #5d6478;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
+
+/* alumni */
+.dream-alumni-pro {
+  padding: 46px 24px 46px;
+}
+
+.dream-alumni-pro__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.dream-alumni-pro__card {
+  background: #ffffff;
+  border-radius: 20px;
+  border-top: 6px solid #ef4444;
+  padding: 22px 20px 20px;
+  box-shadow:
+    0 16px 28px rgba(20, 25, 46, 0.07),
+    0 4px 10px rgba(20, 25, 46, 0.04);
+  min-height: 320px;
+  height: auto;
+}
+
+.dream-alumni-pro__text {
+  margin: 0 0 20px;
+  color: #485064;
+  font-size: 0.91rem;
+  line-height: 1.8;
+  max-width: 58ch;
+  overflow-wrap: break-word;
+}
+
+.dream-alumni-pro__footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dream-alumni-pro__avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dream-alumni-pro__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dream-alumni-pro__meta h3 {
+  margin: 0 0 4px;
+  color: #111;
+  font-size: 0.96rem;
+  font-weight: 900;
+}
+
+.dream-alumni-pro__meta p {
+  margin: 0 0 6px;
+  color: #5d6478;
+  font-size: 0.84rem;
+  overflow-wrap: break-word;
+}
+
+.dream-alumni-pro__meta span {
+  display: inline-flex;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* facebook */
+.dream-facebook-pro {
+  padding: 8px 24px 56px;
+}
+
+.dream-facebook-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(36, 40, 61, 0.08);
+  box-shadow:
+    0 16px 28px rgba(20, 25, 46, 0.07),
+    0 4px 10px rgba(20, 25, 46, 0.04);
+}
+
+.dream-facebook-card__banner img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.dream-facebook-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+}
+
+.dream-facebook-card__logo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 12px 24px rgba(20, 25, 46, 0.12);
+}
+
+.dream-facebook-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dream-facebook-card__meta {
+  min-width: 0;
+}
+
+.dream-facebook-card__meta h3 {
+  margin: 0 0 6px;
+  color: #111;
+  font-size: 1.32rem;
+  line-height: 1.15;
+  font-weight: 900;
+  overflow-wrap: break-word;
+}
+
+.dream-facebook-card__meta p {
+  margin: 0;
+  color: #5f6679;
+  font-size: 0.94rem;
+  overflow-wrap: break-word;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .dream-analytics-pro__grid,
+  .dream-featured-pro__grid,
+  .dream-alumni-pro__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dream-story-card,
+  .dream-story-card--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .dream-story-card--reverse .dream-story-card__copy,
+  .dream-story-card--reverse .dream-story-card__photo {
+    order: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .dream-hero-pro,
+  .dream-analytics-pro,
+  .dream-stories-pro,
+  .dream-featured-pro,
+  .dream-alumni-pro,
+  .dream-facebook-pro {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dream-shell,
+  .dream-shell--narrow,
+  .dream-shell--hero {
+    width: 100%;
+  }
+
+  .dream-hero-pro {
+    padding-top: 24px;
+  }
+
+  .dream-hero-pro__title {
+    font-size: 2.45rem;
+  }
+
+  .dream-hero-pro__lead,
+  .dream-story-card__quote,
+  .dream-feature-card__text,
+  .dream-alumni-pro__text {
+    font-size: 0.88rem;
+    line-height: 1.72;
+  }
+
+  .dream-hero-pro__image-wrap {
+    border-radius: 18px;
+  }
+
+  .dream-hero-pro__image-wrap img {
+    height: 230px;
+  }
+
+  .dream-analytics-card,
+  .dream-feature-card,
+  .dream-alumni-pro__card {
+    min-height: unset;
+  }
+
+  .dream-analytics-card__image img {
+    height: 170px;
+  }
+
+  .dream-story-card {
+    gap: 18px;
+  }
+
+  .dream-story-card__photo {
+    width: 170px;
+    height: 170px;
+  }
+
+  .dream-facebook-card__footer {
+    align-items: flex-start;
+  }
+
+  .dream-facebook-card__meta h3 {
+    font-size: 1.08rem;
+  }
+
+  .dream-facebook-card__banner img {
+    height: 180px;
+  }
+}
