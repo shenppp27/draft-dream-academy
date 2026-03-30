@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './EventSection.css'
 import EventCard from './EventCard'
@@ -64,14 +65,17 @@ export default function EventSection() {
             </h2>
           </div>
 
-          <motion.button
-            type="button"
-            className="event-view-all-button"
+          <motion.div
             whileHover={hoverSoft}
             whileTap={tapPress}
           >
-            View All
-          </motion.button>
+            <Link
+              to="/events"
+              className="event-view-all-button"
+            >
+              View All
+            </Link>
+          </motion.div>
         </motion.div>
 
         <div className="event-slider-shell">

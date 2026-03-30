@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './AnnouncementCard.css'
 import type { AnnouncementItem } from '../data/announcements'
 import { fadeUp, hoverLift, tapPress } from '../animations'
@@ -17,19 +18,21 @@ export default function AnnouncementCard({ item }: AnnouncementCardProps) {
       whileHover={hoverLift}
       whileTap={tapPress}
     >
-      <div className="announcement-image-wrap">
-        <img src={item.image} alt={item.title} className="announcement-image" />
-        <div className="announcement-tag">{item.category}</div>
-      </div>
+      <Link to={`/announcements/${item.id}`} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none', color: 'inherit' }}>
+        <div className="announcement-image-wrap">
+          <img src={item.image} alt={item.title} className="announcement-image" />
+          <div className="announcement-tag">{item.category}</div>
+        </div>
 
-      <div className="announcement-content">
-        <div className="announcement-date">🗓 {item.date}</div>
-        <h3 className="announcement-title">{item.title}</h3>
-        <p className="announcement-description">{item.description}</p>
-        <a href="#" className="announcement-link">
-          Read More →
-        </a>
-      </div>
+        <div className="announcement-content">
+          <div className="announcement-date">🗓 {item.date}</div>
+          <h3 className="announcement-title">{item.title}</h3>
+          <p className="announcement-description">{item.description}</p>
+          <span className="announcement-link">
+            Read More →
+          </span>
+        </div>
+      </Link>
     </motion.article>
   )
 }

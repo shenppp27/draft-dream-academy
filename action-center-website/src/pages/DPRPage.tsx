@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 import heroImage from '../assets/hero.png'
 import {
   ShieldAlert,
@@ -11,6 +12,7 @@ import {
   BookOpen,
 } from 'lucide-react'
 import Footer from '../components/Footer'
+import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
 import './DPRPage.css'
 
 const programItems = [
@@ -97,6 +99,8 @@ const resourceCards = [
   },
 ]
 
+const vp = { once: true, margin: '-80px' as const }
+
 export default function DPRPage() {
   const [slideIndex, setSlideIndex] = useState(0)
 
@@ -116,26 +120,46 @@ export default function DPRPage() {
   return (
     <>
       <main className="dpr-page">
+
+        {/* ── Hero ── */}
         <section className="dpr-hero">
           <div className="dpr-hero__container">
-            <div className="dpr-hero__text">
+            <motion.div
+              className="dpr-hero__text"
+              variants={slideRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <p className="dpr-hero__eyebrow">BatStateU ACTION Center</p>
               <h1 className="dpr-hero__title">
                 DISASTER PREPAREDNESS
                 <br />
                 AND RESPONSE
               </h1>
-            </div>
+            </motion.div>
 
-            <div className="dpr-hero__image-wrap">
+            <motion.div
+              className="dpr-hero__image-wrap"
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <img src={heroImage} alt="Disaster Preparedness and Response" />
               <div className="dpr-hero__image-badge">
                 <ShieldAlert size={18} strokeWidth={2.2} />
                 <span>Preparedness and Protection</span>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="dpr-hero__description">
+            <motion.div
+              className="dpr-hero__description"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <p>
                 Disaster Preparedness and Response refers to a comprehensive set of
                 strategies, plans, and actions aimed at reducing the impact of disasters,
@@ -145,19 +169,32 @@ export default function DPRPage() {
                 organizations with the knowledge and resources needed to handle
                 emergencies efficiently.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
+        {/* ── Programs ── */}
         <section className="dpr-programs">
           <div className="dpr-programs__container">
-            <div className="dpr-programs__media">
+            <motion.div
+              className="dpr-programs__media"
+              variants={slideRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <img src={heroImage} alt="Training and preparedness activities" />
-            </div>
+            </motion.div>
 
-            <div className="dpr-programs__list">
+            <motion.div
+              className="dpr-programs__list"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               {programItems.map((item) => (
-                <article key={item.number} className="dpr-program-card">
+                <motion.article key={item.number} className="dpr-program-card" variants={fadeUp}>
                   <div className="dpr-program-card__number">{item.number}</div>
 
                   <div className="dpr-program-card__content">
@@ -166,13 +203,20 @@ export default function DPRPage() {
                     <p>{item.text}</p>
                     <button type="button">{item.button}</button>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        <section className="dpr-drills">
+        {/* ── Drills ── */}
+        <motion.section
+          className="dpr-drills"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={vp}
+        >
           <div className="dpr-drills__container">
             <div className="dpr-drills__heading">
               <h2>
@@ -200,22 +244,35 @@ export default function DPRPage() {
               </div>
             </div>
 
-            <div className="dpr-drills__grid">
+            <motion.div
+              className="dpr-drills__grid"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               {campusCards.map((campus, index) => (
-                <article key={campus} className="dpr-drill-card">
+                <motion.article key={campus} className="dpr-drill-card" variants={scaleIn}>
                   {index === 0 && (
                     <div className="dpr-drill-card__image">
                       <img src={heroImage} alt={campus} />
                     </div>
                   )}
                   <div className="dpr-drill-card__label">{campus}</div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="dpr-facilities">
+        {/* ── Facilities ── */}
+        <motion.section
+          className="dpr-facilities"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={vp}
+        >
           <div className="dpr-section-heading">
             <p>BatStateU</p>
             <h2>
@@ -254,12 +311,19 @@ export default function DPRPage() {
             <span className={slideIndex === 0 ? 'active' : ''} />
             <span className={slideIndex === 2 ? 'active' : ''} />
           </div>
-        </section>
+        </motion.section>
 
-        <section className="dpr-resources">
+        {/* ── Resources ── */}
+        <motion.section
+          className="dpr-resources"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={vp}
+        >
           <div className="dpr-resources__grid">
             {resourceCards.map((item) => (
-              <article key={item.title} className="dpr-resource-card">
+              <motion.article key={item.title} className="dpr-resource-card" variants={slideLeft}>
                 <div className="dpr-resource-card__bg" />
                 <div className="dpr-resource-card__content">
                   <div className="dpr-resource-card__icon">{item.icon}</div>
@@ -269,10 +333,10 @@ export default function DPRPage() {
                   </div>
                   <span>{item.tag}</span>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <Footer />

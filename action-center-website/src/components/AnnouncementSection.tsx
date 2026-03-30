@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './AnnouncementSection.css'
 import AnnouncementCard from './AnnouncementCard'
 import { announcements } from '../data/announcements'
@@ -49,14 +50,17 @@ export default function AnnouncementSection() {
             </h2>
           </div>
 
-          <motion.button
-            type="button"
-            className="announcement-view-all-button"
+          <motion.div
             whileHover={hoverSoft}
             whileTap={tapPress}
           >
-            View All
-          </motion.button>
+            <Link
+              to="/announcements"
+              className="announcement-view-all-button"
+            >
+              View All
+            </Link>
+          </motion.div>
         </motion.div>
 
         <div className="announcement-slider-shell">

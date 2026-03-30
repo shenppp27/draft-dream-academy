@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import heroImage from '../assets/hero.png'
 import Footer from '../components/Footer'
+import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
 import './DREAMPage.css'
 
 const statsCards = [
@@ -60,13 +62,23 @@ const alumniCards = [
   },
 ]
 
+const vp = { once: true, margin: '-80px' as const }
+
 export default function DREAMPage() {
   return (
     <>
       <main className="dream-page-pro">
+
+        {/* ── Hero ── */}
         <section className="dream-hero-pro">
           <div className="dream-shell dream-shell--hero">
-            <div className="dream-hero-pro__content">
+            <motion.div
+              className="dream-hero-pro__content"
+              variants={slideRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <p className="dream-kicker">DREAM Academy</p>
 
               <h1 className="dream-hero-pro__title">
@@ -79,19 +91,32 @@ export default function DREAMPage() {
                 Prepares professionals to manage disasters, strengthen resilience,
                 and contribute to emergency response, risk reduction, and humanitarian work.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="dream-hero-pro__image-wrap">
+            <motion.div
+              className="dream-hero-pro__image-wrap"
+              variants={slideLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <img src={heroImage} alt="Master in Disaster Risk Management" />
-            </div>
+            </motion.div>
           </div>
         </section>
 
+        {/* ── Analytics ── */}
         <section className="dream-analytics-pro">
           <div className="dream-shell">
-            <div className="dream-analytics-pro__grid">
+            <motion.div
+              className="dream-analytics-pro__grid"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               {statsCards.map((item) => (
-                <article key={item.title} className="dream-analytics-card">
+                <motion.article key={item.title} className="dream-analytics-card" variants={scaleIn}>
                   <div className="dream-analytics-card__image">
                     <img src={heroImage} alt={item.title} />
                   </div>
@@ -99,18 +124,23 @@ export default function DREAMPage() {
                     <h3>{item.title}</h3>
                     <p>{item.subtitle}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
+        {/* ── Stories ── */}
         <section className="dream-stories-pro">
           <div className="dream-shell dream-shell--narrow">
             {profileStories.map((item, index) => (
-              <article
+              <motion.article
                 key={item.name}
                 className={`dream-story-card ${index % 2 === 1 ? 'dream-story-card--reverse' : ''}`}
+                variants={index % 2 === 0 ? slideRight : slideLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={vp}
               >
                 <div className="dream-story-card__copy">
                   <div className="dream-story-card__brand">
@@ -118,7 +148,7 @@ export default function DREAMPage() {
                     <strong>ACTION Center</strong>
                   </div>
 
-                  <p className="dream-story-card__quote">“{item.quote}”</p>
+                  <p className="dream-story-card__quote">"{item.quote}"</p>
 
                   <div className="dream-story-card__person">
                     <h3>{item.name}</h3>
@@ -129,26 +159,39 @@ export default function DREAMPage() {
                 <div className="dream-story-card__photo">
                   <img src={heroImage} alt={item.name} />
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </section>
 
+        {/* ── Featured Quotes ── */}
         <section className="dream-featured-pro">
           <div className="dream-shell dream-shell--narrow">
-            <div className="dream-featured-pro__heading">
+            <motion.div
+              className="dream-featured-pro__heading"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <h2>
                 "<span>Preparedness</span> is the
                 <br />
                 key to success."
               </h2>
               <p>Alexander Graham Bell</p>
-            </div>
+            </motion.div>
 
-            <div className="dream-featured-pro__grid">
+            <motion.div
+              className="dream-featured-pro__grid"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               {featuredQuotes.map((item) => (
-                <article key={item.name} className="dream-feature-card">
-                  <p className="dream-feature-card__text">“{item.quote}”</p>
+                <motion.article key={item.name} className="dream-feature-card" variants={fadeUp}>
+                  <p className="dream-feature-card__text">"{item.quote}"</p>
 
                   <div className="dream-feature-card__footer">
                     <div className="dream-feature-card__avatar">
@@ -160,26 +203,39 @@ export default function DREAMPage() {
                       <p>{item.role}</p>
                     </div>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
+        {/* ── Alumni ── */}
         <section className="dream-alumni-pro">
           <div className="dream-shell">
-            <div className="dream-section-heading-pro">
+            <motion.div
+              className="dream-section-heading-pro"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <h2>
                 Master in Disaster <span>Risk Management</span>
                 <br />
                 Alumni Testimonial
               </h2>
               <div className="dream-section-heading-pro__line" />
-            </div>
+            </motion.div>
 
-            <div className="dream-alumni-pro__grid">
+            <motion.div
+              className="dream-alumni-pro__grid"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               {alumniCards.map((item) => (
-                <article key={item.name} className="dream-alumni-pro__card">
+                <motion.article key={item.name} className="dream-alumni-pro__card" variants={fadeUp}>
                   <p className="dream-alumni-pro__text">{item.text}</p>
 
                   <div className="dream-alumni-pro__footer">
@@ -193,13 +249,20 @@ export default function DREAMPage() {
                       <span>{item.batch}</span>
                     </div>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        <section className="dream-facebook-pro">
+        {/* ── Facebook ── */}
+        <motion.section
+          className="dream-facebook-pro"
+          variants={scaleIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={vp}
+        >
           <div className="dream-shell dream-shell--narrow">
             <div className="dream-section-heading-pro">
               <h2>
@@ -225,7 +288,7 @@ export default function DREAMPage() {
               </div>
             </article>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <Footer />

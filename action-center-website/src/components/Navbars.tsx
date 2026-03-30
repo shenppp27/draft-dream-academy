@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 const navItems = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT', href: '/about' },
-  { label: 'DPR', href: '/DPR' },
-  { label: 'IACT4DRR', href: 'DDR' },
-  { label: 'DREAM ACADEMY', href: 'dream-academy' },
+  { label: 'DPR', href: '/dpr' },
+  { label: 'IACT4DRR', href: '/ddr' },
+  { label: 'DREAM ACADEMY', href: '/dream-academy' },
 ]
 
 export default function Navbars() {

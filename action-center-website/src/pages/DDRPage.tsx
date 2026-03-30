@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion'
 import heroImage from '../assets/hero.png'
 import { FileText, Cpu, Globe2, Building2 } from 'lucide-react'
 import Footer from '../components/Footer'
+import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
 import './DDRPage.css'
 
 const solutions = [
@@ -27,35 +29,64 @@ const solutions = [
   },
 ]
 
+const vp = { once: true, margin: '-80px' as const }
+
 export default function DDRPage() {
   return (
     <>
       <main className="ddr-page">
+
+        {/* ── Hero ── */}
         <section className="ddr-hero">
           <div className="ddr-hero__container">
             <div className="ddr-top-space" />
 
             <div className="ddr-hero__content">
-              <h1 className="ddr-hero__title">
+              <motion.h1
+                className="ddr-hero__title"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={vp}
+              >
                 Intelligent <span>Action Center</span> for
                 <br />
                 Disaster Risk Reduction
-              </h1>
+              </motion.h1>
 
-              <p className="ddr-hero__lead">
+              <motion.p
+                className="ddr-hero__lead"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={vp}
+              >
                 Advanced technology solutions for disaster preparedness,
                 response, and recovery. Protecting communities through
                 innovation and data-driven insights.
-              </p>
+              </motion.p>
 
-              <div className="ddr-hero__image-wrap">
+              <motion.div
+                className="ddr-hero__image-wrap"
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={vp}
+              >
                 <img src={heroImage} alt="Disaster Risk Reduction" />
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="ddr-dashboard">
+        {/* ── Dashboard ── */}
+        <motion.section
+          className="ddr-dashboard"
+          variants={slideRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={vp}
+        >
           <div className="ddr-dashboard__container">
             <h2 className="ddr-dashboard__title">
               Data-Driven <span>Dashboard</span>
@@ -75,20 +106,37 @@ export default function DDRPage() {
               </p>
             </div>
           </div>
-        </section>
+        </motion.section>
 
+        {/* ── Solutions ── */}
         <section className="ddr-solutions">
           <div className="ddr-solutions__container">
-            <div className="ddr-section-heading">
+            <motion.div
+              className="ddr-section-heading"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
               <h2>
                 Our technology <span>Solutions</span>
               </h2>
               <div className="ddr-section-heading__line" />
-            </div>
+            </motion.div>
 
-            <div className="ddr-solutions__list">
-              {solutions.map((item) => (
-                <article key={item.title} className="ddr-solution-card">
+            <motion.div
+              className="ddr-solutions__list"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              {solutions.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  className="ddr-solution-card"
+                  variants={index % 2 === 0 ? slideRight : slideLeft}
+                >
                   <div className="ddr-solution-card__icon">{item.icon}</div>
 
                   <div className="ddr-solution-card__content">
@@ -96,9 +144,9 @@ export default function DDRPage() {
                     <h4>{item.subtitle}</h4>
                     <p>{item.text}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
