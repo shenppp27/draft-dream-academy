@@ -5,9 +5,12 @@
 
 .announcement-container {
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 34px;
   display: flex;
   flex-direction: column;
-  gap: 85px;
+  gap: 40px;
 }
 
 .announcement-header {

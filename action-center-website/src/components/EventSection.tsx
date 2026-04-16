@@ -54,7 +54,7 @@ export default function EventSection() {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: true, amount: 0 }}
     >
       <div className="event-container">
         <motion.div className="event-header" variants={fadeUp}>

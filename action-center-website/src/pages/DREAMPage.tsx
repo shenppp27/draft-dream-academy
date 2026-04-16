@@ -1,15 +1,24 @@
 import { motion } from 'framer-motion'
-import heroImage from '../assets/hero.png'
+import heroImg from '../assets/hero.png'
+import aboutAnimateImg from '../assets/aboutanimate.jpg'
+import atlasImg from '../assets/altas.png'
+import partnershipImg from '../assets/partnership.png'
+import rdImg from '../assets/rd_logoz.png'
+import dprImg from '../assets/dprimage.jpg'
+import inventoryImg from '../assets/inventory.jpg'
+import logoImg from '../assets/actioncenter-logo-enhance.png'
 import Footer from '../components/Footer'
 import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
 import './DREAMPage.css'
 
 const statsCards = [
   {
+    image: aboutAnimateImg,
     title: 'Graduation Trend',
     subtitle: 'Master in Disaster Risk Reduction and Management (2020–2025)',
   },
   {
+    image: rdImg,
     title: 'Student Enrollment',
     subtitle: 'Number of Students Enrolled in MDRM',
   },
@@ -17,12 +26,14 @@ const statsCards = [
 
 const profileStories = [
   {
+    image: atlasImg,
     quote:
       'The Master in Disaster Risk Management Off-Campus Program gave me the opportunity to learn more and enrich my understanding in the field of disaster risk reduction and management. The fruitful and active class discussions, and knowledge sharing on real-life experiences are the key elements of this program that will serve as the building blocks in shaping my future to be a better public servant.',
     name: 'KELVIN ART T. OFRECIO',
     role: 'Master in Disaster Risk Management',
   },
   {
+    image: partnershipImg,
     quote:
       'My Master in Disaster Risk Management journey was one of the integral parts of my life. Being in DRRM job was never a dream for me, but it seems to be my fate. One of the takeaways is the friendship and connections established during the journey of learning. As a member of the pioneer batch, I can proudly say that our weapon is being one, being united, and being a family to our classmates.',
     name: 'BELINA MACUHA-MONTALBO',
@@ -32,12 +43,14 @@ const profileStories = [
 
 const featuredQuotes = [
   {
+    image: inventoryImg,
     quote:
       'Thinking of the days as a student of MDRM fills me with nostalgia. The BatStateU Master in Disaster Risk Management program opened my awareness to more scientific methods of conducting disaster management programs. The lessons and influences of my professors have provided me with the knowledge and skills necessary to improve as a public servant.',
     name: 'RODRIGO DELA ROCA',
     role: 'Batangas City Disaster Risk Reduction and Management Officer',
   },
   {
+    image: dprImg,
     quote:
       'Our journey in MDRM made us function as military professionals and as a team working in diverse environments. The program contributed greatly to the dissemination and implementation of several DRRM methodologies and processes. We learned to be adaptive, disciplined, and responsive in different disaster scenarios.',
     name: 'CPT KRYSTLE ROSE V. ABAY (AGS) PA',
@@ -47,6 +60,7 @@ const featuredQuotes = [
 
 const alumniCards = [
   {
+    image: aboutAnimateImg,
     text:
       'My journey as a Disaster Risk Management student at Batangas State University, The National Engineering University, has been transformative. The program introduced me to foundational courses in disaster risk reduction and management, equipped me with essential skills, and prepared me to make meaningful contributions to resilient communities.',
     name: 'DOUREN A. LAROZA – MENDOZA',
@@ -54,6 +68,7 @@ const alumniCards = [
     batch: 'Batch 2023',
   },
   {
+    image: heroImg,
     text:
       'My journey as a Disaster Risk Management student at Batangas State University has been both rigorous and rewarding. Through academic knowledge, practical exposure, and collaborative learning, I developed a stronger understanding of risk reduction, disaster resilience, and public service.',
     name: 'SELIKA ALEXIS A. MELO',
@@ -100,7 +115,7 @@ export default function DREAMPage() {
               whileInView="visible"
               viewport={vp}
             >
-              <img src={heroImage} alt="Master in Disaster Risk Management" />
+              <img src={heroImg} alt="Master in Disaster Risk Management" />
             </motion.div>
           </div>
         </section>
@@ -118,7 +133,7 @@ export default function DREAMPage() {
               {statsCards.map((item) => (
                 <motion.article key={item.title} className="dream-analytics-card" variants={scaleIn}>
                   <div className="dream-analytics-card__image">
-                    <img src={heroImage} alt={item.title} />
+                    <img src={item.image} alt={item.title} />
                   </div>
                   <div className="dream-analytics-card__meta">
                     <h3>{item.title}</h3>
@@ -157,7 +172,7 @@ export default function DREAMPage() {
                 </div>
 
                 <div className="dream-story-card__photo">
-                  <img src={heroImage} alt={item.name} />
+                  <img src={item.image} alt={item.name} />
                 </div>
               </motion.article>
             ))}
@@ -195,7 +210,7 @@ export default function DREAMPage() {
 
                   <div className="dream-feature-card__footer">
                     <div className="dream-feature-card__avatar">
-                      <img src={heroImage} alt={item.name} />
+                      <img src={item.image} alt={item.name} />
                     </div>
 
                     <div className="dream-feature-card__meta">
@@ -240,7 +255,7 @@ export default function DREAMPage() {
 
                   <div className="dream-alumni-pro__footer">
                     <div className="dream-alumni-pro__avatar">
-                      <img src={heroImage} alt={item.name} />
+                      <img src={item.image} alt={item.name} />
                     </div>
 
                     <div className="dream-alumni-pro__meta">
@@ -273,12 +288,12 @@ export default function DREAMPage() {
 
             <article className="dream-facebook-card">
               <div className="dream-facebook-card__banner">
-                <img src={heroImage} alt="Dream Academy Facebook banner" />
+                <img src={atlasImg} alt="Dream Academy Facebook banner" />
               </div>
 
               <div className="dream-facebook-card__footer">
                 <div className="dream-facebook-card__logo">
-                  <img src={heroImage} alt="Dream Academy" />
+                  <img src={logoImg} alt="Dream Academy" />
                 </div>
 
                 <div className="dream-facebook-card__meta">

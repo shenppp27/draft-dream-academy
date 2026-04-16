@@ -15,18 +15,6 @@ export default function Hero() {
         className="hero-logo-image left-logo"
       />
 
-      <div className="cloud cloud-one" />
-      <div className="cloud cloud-two" />
-
-      <div className="campus-art">
-        <div className="building building-left" />
-        <div className="building building-center" />
-        <div className="building building-right" />
-        <div className="tree tree-left" />
-        <div className="tree tree-center" />
-        <div className="tree tree-right" />
-        <div className="vehicle" />
-      </div>
     </section>
   )
 }

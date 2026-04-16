@@ -13,6 +13,7 @@ import AnnouncementsList from './pages/AnnouncementsList'
 import AnnouncementDetail from './pages/AnnouncementDetail'
 import EventsList from './pages/EventsList'
 import EventDetail from './pages/EventDetail'
+import PartnershipPage from './pages/PartnershipPage'
 
 export default function App() {
   const location = useLocation()
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/dpr" element={<PageTransition><DPRPage /></PageTransition>} />
           <Route path="/ddr" element={<PageTransition><DDRPage /></PageTransition>} />
           <Route path="/dream-academy" element={<PageTransition><DREAMPage /></PageTransition>} />
+          <Route path="/partnership" element={<PageTransition><PartnershipPage /></PageTransition>} />
           
           <Route path="/announcements" element={<PageTransition><AnnouncementsList /></PageTransition>} />
           <Route path="/announcements/:id" element={<PageTransition><AnnouncementDetail /></PageTransition>} />

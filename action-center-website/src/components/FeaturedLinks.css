@@ -34,12 +34,10 @@
 .featured-links__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.08) 0%,
-    rgba(0, 0, 0, 0.16) 55%,
-    rgba(0, 0, 0, 0.22) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.16) 55%,
+      rgba(0, 0, 0, 0.22) 100%);
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
@@ -70,21 +68,27 @@
   background: rgba(255, 63, 63, 0.96);
 }
 
-/* sample backgrounds - replace with your own images/colors */
+/* card backgrounds */
 .featured-links__card--inventory {
-  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), url('../assets/inventory.jpg');
 }
 
 .featured-links__card--research {
-  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+  background-image: linear-gradient(160deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 100%),
+    url('../assets/rd_logoz.png');
+  background-color: #1a3a5c;
 }
 
 .featured-links__card--atlas {
-  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+  background-image: linear-gradient(160deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 100%),
+    url('../assets/altas.png');
+  background-color: #2c4a1e;
 }
 
 .featured-links__card--partnership {
-  background-image: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('../assets/hero.png');
+  background-image: linear-gradient(160deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 100%),
+    url('../assets/partnership.png');
+  background-color: #3b1f5e;
 }
 
 @media (max-width: 1300px) {

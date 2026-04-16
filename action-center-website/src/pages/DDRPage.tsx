@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
-import heroImage from '../assets/hero.png'
+import rdImg from '../assets/rd_logoz.png'
+import aboutAnimateImg from '../assets/aboutanimate.jpg'
+import dprImg from '../assets/dprimage.jpg'
+import atlasImg from '../assets/altas.png'
 import { FileText, Cpu, Globe2, Building2 } from 'lucide-react'
 import Footer from '../components/Footer'
 import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
@@ -7,6 +10,7 @@ import './DDRPage.css'
 
 const solutions = [
   {
+    image: rdImg,
     icon: <Cpu size={22} strokeWidth={2.2} />,
     title: 'WISER',
     subtitle: 'Wireless Integrated Solution for Emergency Response',
@@ -14,6 +18,7 @@ const solutions = [
       'WISER is a wireless sensor network solution for disaster risk management composed of interconnected sensor nodes that gather and exchange data wirelessly. These nodes are strategically deployed in hazard-prone areas and equipped with various sensors and early warning systems to support emergency monitoring and response.',
   },
   {
+    image: atlasImg,
     icon: <Globe2 size={22} strokeWidth={2.2} />,
     title: 'GUIDE',
     subtitle: 'GIS Utilization for Incidents, Disasters, and Emergencies',
@@ -21,6 +26,7 @@ const solutions = [
       'GUIDE is a geospatial information system for disaster risk reduction that combines spatial data with hazard and vulnerability information to support decision-making in disaster-prone areas. It uses mapping, satellite imagery, and aerial data to analyze and visualize risk and disaster impacts.',
   },
   {
+    image: aboutAnimateImg,
     icon: <Building2 size={22} strokeWidth={2.2} />,
     title: 'DIGITAL TWIN RESEARCH CENTER',
     subtitle: 'The Digital Twin Research Center is a proposed niche center in the region',
@@ -73,7 +79,7 @@ export default function DDRPage() {
                 whileInView="visible"
                 viewport={vp}
               >
-                <img src={heroImage} alt="Disaster Risk Reduction" />
+                <img src={dprImg} alt="Disaster Risk Reduction" />
               </motion.div>
             </div>
           </div>

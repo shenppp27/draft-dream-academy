@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import heroImage from '../assets/hero.png'
 import Footer from '../components/Footer'
-import { fadeUp, staggerContainer, slideRight, slideLeft, scaleIn } from '../animations'
+import { fadeUp, staggerContainer, scaleIn } from '../animations'
 import {
   ShieldCheck,
   Users,
@@ -15,77 +14,93 @@ import './AboutPage.css'
 
 const aimCards = [
   {
-    icon: <ShieldCheck size={18} strokeWidth={2.2} />,
-    title: 'Protect assets and gains',
-    text: 'Safeguard the progress, resources, and welfare of people and communities through science-based risk reduction, education, and action.',
+    id: 1,
+    icon: <ShieldCheck size={22} strokeWidth={2} />,
+    boldText: 'Protect',
+    text: ' whatever economic gains people and communities have garnered through formal education and research using science and technology.',
   },
   {
-    icon: <Users size={18} strokeWidth={2.2} />,
-    title: 'Build proactive communities',
-    text: 'Promote preparedness, awareness, and resilience through professional education, skills training, and practical disaster readiness initiatives.',
+    id: 2,
+    icon: <Users size={22} strokeWidth={2} />,
+    boldText: 'Take a pro-active',
+    text: ' role in making people and communities safer and more resilient to save their lives and properties in times of natural calamities through professional education, skills training and innovative research.',
   },
   {
-    icon: <Building2 size={18} strokeWidth={2.2} />,
-    title: 'Strengthen local readiness',
-    text: 'Help local leaders and communities better understand hazard risks and improve their readiness before disruptive events occur.',
+    id: 3,
+    icon: <Building2 size={22} strokeWidth={2} />,
+    boldText: 'Make local',
+    text: ' leaders and communities more aware of the dangers of natural hazards and be prepared when such disasters occur.',
   },
   {
-    icon: <FileSearch size={18} strokeWidth={2.2} />,
-    title: 'Deliver reliable information',
-    text: 'Provide timely, relevant, and actionable hazard information to guide communities before, during, and after emergencies.',
+    id: 4,
+    icon: <FileSearch size={22} strokeWidth={2} />,
+    boldText: 'Inform people',
+    text: ' and communities about all possible natural hazards in their areas, the warning information and the suggested actions to take during these events.',
   },
 ]
 
-const timelineItems = [
-  {
-    title: 'Establishment of the BatStateU ACTION Center',
-    subtitle: 'Board Resolution No. 482-A, S.2016',
-    text: "The Board of Regents approved the creation of the BatStateU ACTION Center on November 19, 2016, alongside the approval of the University's Disaster and Risk Reduction Management Plan.",
-  },
-  {
-    title: 'National Recognition',
-    subtitle: 'Republic Act 11694',
-    text: 'Batangas State University was declared the National Engineering University, strengthening its role in research, innovation, and national development.',
-    quote:
-      'Section 3 (j): "Provide an avenue for the professional advancement of Disaster Risk Management (DRM) managers and practitioners by offering academic programs in DRM and contribute in ensuring a resilient community..."',
-  },
-]
+const timelineItems: {
+  id: number
+  title: string
+  subtitle: string
+  text: string
+  quote?: string
+}[] = [
+    {
+      id: 1,
+      title: 'Establishment of BatStateU ACTION Center',
+      subtitle: 'Board Resolution No. 482-A, S.2016',
+      text: "The Board of Regents approved the creation of the BatStateU ACTION Center on November 19, 2016, alongside the approval of the University's Disaster and Risk Reduction Management Plan.",
+    },
+    {
+      id: 2,
+      title: 'National Recognition',
+      subtitle: 'Republic Act 11694',
+      text: 'An Act Declaring the Batangas State University as The National Engineering University and appropriating Funds therefor.',
+      quote:
+        'Section 3 (j): "Provide an avenue for the professional advancement of Disaster Risk Management (DRM) managers and practitioners by offering academic programs in DRM and contribute in ensuring a resilient community through the Adaptive Capacity-building and Technology Innovation for Occupational Health and Natural Disaster (ACTION) Center endorsed by the Regional Development Council-CALABARZON as National Center for Disaster Risk Reduction and Management, and Climate Change Adaptation Education and Research."',
+    },
+  ]
 
 const facilitySlides = [
   {
-    image: heroImage,
+    id: 1,
+    className: 'facility-card__image--front-desk',
     tag: 'Front Desk',
-    title: 'Command Center Building',
-    label: 'FRONT DESK',
-    text: 'A key receiving and coordination point that supports visitor assistance, operational flow, and front-facing communication.',
+    buildingName: 'Command Center Building',
+    roomLabel: 'FRONT DESK',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
-    image: heroImage,
+    id: 2,
+    className: 'facility-card__image--command-room',
     tag: 'Command and Control Room',
-    title: 'Command Center Building',
-    label: 'COMMAND AND CONTROL ROOM',
-    text: 'A centralized operational environment for monitoring, coordination, and decision support during hazard and emergency-related events.',
+    buildingName: 'Command Center Building',
+    roomLabel: 'COMMAND AND CONTROL ROOM',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
-    image: heroImage,
+    id: 3,
+    className: 'facility-card__image--operations',
     tag: 'Operations Area',
-    title: 'Command Center Building',
-    label: 'OPERATIONS AREA',
-    text: 'A support space for planning, documentation, logistics coordination, and team-based operational activities.',
+    buildingName: 'Command Center Building',
+    roomLabel: 'OPERATIONS AREA',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
   {
-    image: heroImage,
+    id: 4,
+    className: 'facility-card__image--monitoring',
     tag: 'Monitoring Area',
-    title: 'Command Center Building',
-    label: 'MONITORING AREA',
-    text: 'A dedicated space for real-time observation, information tracking, and situational awareness activities.',
+    buildingName: 'Command Center Building',
+    roomLabel: 'MONITORING AREA',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   },
 ]
 
 const featureCards = [
-  { image: heroImage, title: 'HISTORY' },
-  { image: heroImage, title: 'ORGANIZATIONAL STRUCTURE' },
-  { image: heroImage, title: 'AWARDS AND RECOGNITION' },
+  { id: 1, className: 'about-feature-card--history', title: 'HISTORY' },
+  { id: 2, className: 'about-feature-card--org', title: 'ORGANIZATIONAL STRUCTURE' },
+  { id: 3, className: 'about-feature-card--awards', title: 'AWARDS AND RECOGNITION' },
 ]
 
 const vp = { once: true, margin: '-80px' as const }
@@ -93,213 +108,187 @@ const vp = { once: true, margin: '-80px' as const }
 export default function AboutPage() {
   const [slideIndex, setSlideIndex] = useState(0)
 
-  const nextSlide = () => {
+  const nextSlide = () =>
     setSlideIndex((prev) => (prev + 2) % facilitySlides.length)
-  }
-
-  const prevSlide = () => {
+  const prevSlide = () =>
     setSlideIndex((prev) => (prev - 2 + facilitySlides.length) % facilitySlides.length)
-  }
 
   const visibleSlides = useMemo(
-    () => [facilitySlides[slideIndex], facilitySlides[(slideIndex + 1) % facilitySlides.length]],
-    [slideIndex]
+    () => [
+      facilitySlides[slideIndex],
+      facilitySlides[(slideIndex + 1) % facilitySlides.length],
+    ],
+    [slideIndex],
   )
 
   return (
     <>
-      <main className="about-page-pro">
+      <main className="about-page">
 
-        {/* ── TOP GRADIENT WRAPPER ── */}
-        <div className="about-top-wrapper">
-          {/* ── Hero ── */}
-          <section className="about-hero-pro">
+        {/* ─── TOP GRADIENT (white → red) ─── */}
+        <div className="about-top-bg">
+          <section className="about-hero">
+            <motion.h1
+              className="about-hero__title"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              ABOUT
+            </motion.h1>
+
             <motion.div
-            className="about-hero-pro__text"
-            variants={slideRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <p className="about-hero-pro__eyebrow">BatStateU ACTION Center</p>
-            <h1 className="about-hero-pro__title">ABOUT</h1>
-            <p className="about-hero-pro__lead">
-              The BatStateU ACTION Center serves as the University's hub for disaster
-              preparedness, training, risk reduction, and community-centered resilience
-              initiatives.
-            </p>
-          </motion.div>
+              className="about-hero__card"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              <div className="about-hero__image" />
+              <div className="about-hero__panel">
+                The BatStateU ACTION Center is the University's research and training arm for
+                disaster response and training, and caters to stakeholders and communities both
+                internal and external to the University.
+              </div>
+            </motion.div>
+          </section>
 
-          <motion.div
-            className="about-hero-pro__media"
-            variants={slideLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <img src={heroImage} alt="BatStateU ACTION Center" />
-            <div className="about-hero-pro__panel">
-              The Center advances coordinated action in preparedness, response, education,
-              and innovation for communities within and beyond the University.
-            </div>
-          </motion.div>
-        </section>
-
-        {/* ── Purpose ── */}
-        <motion.section
-          className="about-purpose-pro"
-          variants={scaleIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={vp}
-        >
-          <div className="about-purpose-pro__inner">
-            <p className="about-purpose-pro__label">ACTION</p>
-            <h2>Adaptive Capacity-building and Technology Innovation</h2>
-            <p>for Occupational Hazards and Natural Disasters</p>
-            </div>
-          </motion.section>
-        </div> {/* End about-top-wrapper */}
-
-        {/* ── DARK WRAPPER ── */}
-        <div className="about-dark-wrapper">
-          {/* ── Aims ── */}
-          <section className="about-aims-pro">
+          {/* ─── ACTION Acronym ─── */}
+          <section className="about-action">
             <motion.div
-              className="about-section-heading about-section-heading--light"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <p>Institutional Direction</p>
-            <h2>
-              The ACTION <span>Center Aims To</span>
-            </h2>
-          </motion.div>
+              className="about-action__inner"
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              <div className="about-action__pill">ACTION</div>
+              <h2 className="about-action__subtitle">
+                Adaptive Capacity-building and Technology Innovation
+              </h2>
+              <p className="about-action__desc">for Occupational Hazards and Natural Disasters</p>
+            </motion.div>
+          </section>
+        </div>
 
-          <motion.div
-            className="about-aims-pro__grid"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            {aimCards.map((item) => (
-              <motion.article key={item.title} className="about-aim-pro-card" variants={fadeUp}>
-                <div className="about-aim-pro-card__icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </motion.article>
+        {/* ─── DARK NAVY  (aims) ─── */}
+        <div className="about-dark-bg">
+          <section className="about-aims">
+            <motion.h2
+              className="about-aims__heading"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              The <strong>ACTION</strong>{' '}
+              <span>Center Aims To:</span>
+            </motion.h2>
+
+            <motion.div
+              className="about-aims__grid"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              {aimCards.map((card) => (
+                <motion.article key={card.id} className="about-aim-card" variants={fadeUp}>
+                  <div className="about-aim-card__icon">{card.icon}</div>
+                  <p>
+                    <strong>{card.boldText}</strong>
+                    {card.text}
+                  </p>
+                </motion.article>
               ))}
             </motion.div>
           </section>
-        </div> {/* End about-dark-wrapper */}
+        </div>
 
-        {/* ── RED WRAPPER ── */}
-        <div className="about-red-wrapper">
-          {/* ── History ── */}
-          <motion.section
-            className="about-history-pro"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={vp}
-        >
-          <div className="about-section-heading about-section-heading--light">
-            <p>Institutional Milestones</p>
-            <h2>History and Recognition</h2>
-          </div>
+        {/* ─── MAUVE / HISTORY ─── */}
+        <div className="about-history-bg">
+          <section className="about-history">
+            <motion.div
+              className="about-history__timeline"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={vp}
+            >
+              <div className="about-history__line" />
 
-          <motion.div
-            className="about-history-pro__timeline"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={vp}
-          >
-            <div className="about-history-pro__line" />
+              {timelineItems.map((item) => (
+                <motion.div key={item.id} className="about-history__row" variants={fadeUp}>
+                  <div className="about-history__marker" />
+                  <article className="about-history__card">
+                    <h3>{item.title}</h3>
+                    <h4>{item.subtitle}</h4>
+                    <p>{item.text}</p>
+                    {item.quote && (
+                      <div className="about-history__quote">
+                        <p>{item.quote}</p>
+                      </div>
+                    )}
+                  </article>
+                </motion.div>
+              ))}
+            </motion.div>
+          </section>
+        </div>
 
-            {timelineItems.map((item) => (
-              <motion.div key={item.title} className="about-history-pro__row" variants={fadeUp}>
-                <div className="about-history-pro__marker" />
-
-                <article className="about-history-pro__card">
-                  <h3>{item.title}</h3>
-                  <h4>{item.subtitle}</h4>
-                  <p>{item.text}</p>
-
-                  {item.quote && (
-                    <div className="about-history-pro__quote">
-                      <p>{item.quote}</p>
-                    </div>
-                  )}
-                </article>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-        </div> {/* End about-red-wrapper */}
-
-        {/* ── Facilities ── */}
+        {/* ─── FACILITIES (white) ─── */}
         <motion.section
-          className="facilities-pro"
+          className="about-facilities"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={vp}
         >
-          <div className="about-section-heading">
-            <p>BatStateU</p>
-            <h2>
-              Our <span>Facilities</span>
-            </h2>
+          <div className="about-facilities__header">
+            <p>— BatStateU</p>
+            <h2>Our <span>Facilities</span></h2>
           </div>
 
-          <div className="facilities-pro__slider">
-            <button type="button" className="facilities-pro__arrow" onClick={prevSlide}>
+          <div className="about-facilities__slider">
+            <button type="button" className="about-facilities__arrow" onClick={prevSlide}>
               <ChevronLeft size={22} />
             </button>
 
-            <div className="facilities-pro__track">
+            <div className="about-facilities__track">
               {visibleSlides.map((item) => (
-                <article key={`${item.title}-${item.label}`} className="facility-pro-card">
-                  <div className="facility-pro-card__image">
-                    <img src={item.image} alt={item.title} />
-                  </div>
-
-                  <div className="facility-pro-card__content">
-                    <span className="facility-pro-card__tag">{item.tag}</span>
-                    <h3>{item.title}</h3>
-                    <h4>{item.label}</h4>
+                <article key={item.id} className="facility-card">
+                  <div className={`facility-card__image ${item.className}`} />
+                  <div className="facility-card__body">
+                    <span className="facility-card__tag">{item.tag}</span>
+                    <h3>{item.buildingName}</h3>
                     <p>{item.text}</p>
                   </div>
                 </article>
               ))}
             </div>
 
-            <button type="button" className="facilities-pro__arrow" onClick={nextSlide}>
+            <button type="button" className="about-facilities__arrow" onClick={nextSlide}>
               <ChevronRight size={22} />
             </button>
           </div>
 
-          <div className="facilities-pro__dots">
+          <div className="about-facilities__dots">
             <span className={slideIndex === 0 ? 'active' : ''} />
             <span className={slideIndex === 2 ? 'active' : ''} />
           </div>
 
+          {/* ─── Feature cards (History / Org / Awards) ─── */}
           <motion.div
-            className="facilities-pro__features"
+            className="about-features"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={vp}
           >
-            {featureCards.map((item) => (
-              <motion.article key={item.title} className="facility-feature-card" variants={scaleIn}>
-                <img src={item.image} alt={item.title} />
-                <div className="facility-feature-card__overlay" />
-                <div className="facility-feature-card__title">{item.title}</div>
+            {featureCards.map((card) => (
+              <motion.article key={card.id} className={`about-feature-card ${card.className}`} variants={scaleIn}>
+                <div className="about-feature-card__banner">{card.title}</div>
               </motion.article>
             ))}
           </motion.div>

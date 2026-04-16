@@ -39,7 +39,7 @@ export default function AnnouncementSection() {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
+      viewport={{ once: true, amount: 0 }}
     >
       <div className="announcement-container">
         <motion.div className="announcement-header" variants={fadeUp}>

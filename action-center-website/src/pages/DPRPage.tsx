@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import heroImage from '../assets/hero.png'
+import dprImg from '../assets/dprimage.jpg'
+import atlasImg from '../assets/altas.png'
+import aboutAnimateImg from '../assets/aboutanimate.jpg'
+import rdImg from '../assets/rd_logoz.png'
+import heroImg from '../assets/hero.png'
 import {
   ShieldAlert,
   GraduationCap,
@@ -55,28 +59,28 @@ const campusCards = [
 
 const facilitySlides = [
   {
-    image: heroImage,
+    image: dprImg,
     tag: 'Front Desk',
     title: 'Command Center Building',
     label: 'FRONT DESK',
     text: 'A receiving and coordination point that supports visitor assistance, communication flow, and operational guidance.',
   },
   {
-    image: heroImage,
+    image: atlasImg,
     tag: 'Command and Control Room',
     title: 'Command Center Building',
     label: 'COMMAND AND CONTROL ROOM',
     text: 'A centralized monitoring space for coordination, situational awareness, and response support during emergencies.',
   },
   {
-    image: heroImage,
+    image: aboutAnimateImg,
     tag: 'Operations Area',
     title: 'Command Center Building',
     label: 'OPERATIONS AREA',
     text: 'A support space for planning, documentation, logistics coordination, and team-based operational activities.',
   },
   {
-    image: heroImage,
+    image: rdImg,
     tag: 'Monitoring Area',
     title: 'Command Center Building',
     label: 'MONITORING AREA',
@@ -146,7 +150,7 @@ export default function DPRPage() {
               whileInView="visible"
               viewport={vp}
             >
-              <img src={heroImage} alt="Disaster Preparedness and Response" />
+              <img src={dprImg} alt="Disaster Preparedness and Response" />
               <div className="dpr-hero__image-badge">
                 <ShieldAlert size={18} strokeWidth={2.2} />
                 <span>Preparedness and Protection</span>
@@ -183,7 +187,7 @@ export default function DPRPage() {
               whileInView="visible"
               viewport={vp}
             >
-              <img src={heroImage} alt="Training and preparedness activities" />
+              <img src={heroImg} alt="Training and preparedness activities" />
             </motion.div>
 
             <motion.div
@@ -255,7 +259,7 @@ export default function DPRPage() {
                 <motion.article key={campus} className="dpr-drill-card" variants={scaleIn}>
                   {index === 0 && (
                     <div className="dpr-drill-card__image">
-                      <img src={heroImage} alt={campus} />
+                      <img src={aboutAnimateImg} alt={campus} />
                     </div>
                   )}
                   <div className="dpr-drill-card__label">{campus}</div>

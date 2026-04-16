@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './FeaturedLinks.css'
 import { fadeUp, staggerContainer, hoverLift, tapPress } from '../animations'
 
@@ -7,25 +8,25 @@ const featuredItems = [
     id: 1,
     label: 'INVENTORY',
     className: 'featured-links__card--inventory',
-    href: '#',
+    href: '/inventory',
   },
   {
     id: 2,
     label: 'RESEARCH AND DEVELOPMENT',
     className: 'featured-links__card--research',
-    href: '#',
+    href: '/rd_logoz',
   },
   {
     id: 3,
     label: 'ATLAS',
     className: 'featured-links__card--atlas',
-    href: '#',
+    href: '#/atlas',
   },
   {
     id: 4,
     label: 'PARTNERSHIP',
     className: 'featured-links__card--partnership',
-    href: '#',
+    href: '/partnership',
   },
 ]
 
@@ -45,19 +46,22 @@ export default function FeaturedLinks() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
       >
-        {featuredItems.map((item) => (
-          <motion.a
-            key={item.id}
-            href={item.href}
-            className={`featured-links__card ${item.className}`}
-            variants={fadeUp}
-            whileHover={hoverLift}
-            whileTap={tapPress}
-          >
-            <div className="featured-links__overlay" />
-            <div className="featured-links__label">{item.label}</div>
-          </motion.a>
-        ))}
+        {featuredItems.map((item) => {
+          const MotionLink = motion(Link)
+          return (
+            <MotionLink
+              key={item.id}
+              to={item.href}
+              className={`featured-links__card ${item.className}`}
+              variants={fadeUp}
+              whileHover={hoverLift}
+              whileTap={tapPress}
+            >
+              <div className="featured-links__overlay" />
+              <div className="featured-links__label">{item.label}</div>
+            </MotionLink>
+          )
+        })}
       </motion.div>
     </motion.section>
   )
